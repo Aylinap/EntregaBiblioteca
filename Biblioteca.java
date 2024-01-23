@@ -26,7 +26,7 @@ public class Biblioteca {
 
     public Biblioteca(String nombrebiblioteca) {
         this.nombrebiblioteca = nombrebiblioteca;
-        listadeLibros = new Libro[100];
+        this.libro = new Libro[100];
     }
 
     // Devuelve true si añade el libro en la biblioteca o false en caso contrario
@@ -69,7 +69,7 @@ public class Biblioteca {
 
     }
 
-    // Muestra todos los libros de la biblioteca
+    // Muestra todos los libros de la biblioteca <-------------
     public void mostrarLibros() {
         for (int i = 0; i < listadeLibros.length; i++) {
             Libro libro = listadeLibros[i];
@@ -80,17 +80,29 @@ public class Biblioteca {
 
     }
 
+    // mjuestra todos loslibros <----------- asi y toma la informacion dentro del
+    // del objeto del libro, bueno casi todos serian de la misma manera, realmente
+    public void mostrarLibros2() {
+        for (int i = 0; i < listadeLibros.length; i++) {
+            if (listadeLibros[i] != null) {
+                System.out.println(listadeLibros[i]);
+            }
+        }
+    }
+
     public Libro[] obtenerLibrosGeneros(String genero) {
         Libro[] libros = new Libro[100];
         int contador = 0;
         for (int i = 0; i < listadeLibros.length; i++) {
-            if (listadeLibros[i] != null && listadeLibros[i].getGenero().equals(genero)) {
+            if (listadeLibros[i] != null && listadeLibros[i].getGenerosLiterarios().equals(genero)) {
                 libros[contador] = listadeLibros[i];
                 contador++;
             }
         }
         return libros;
     }
+
+    // me falto novela,
 
     // poesia
     public Libro[] obtenerLibrosPoesia() {
@@ -119,16 +131,16 @@ public class Biblioteca {
     }
 
     // Nos devuelve el titulo del libro con mas paginas
+    // tengo que arreglarlo
+
     public void mostrarLibroMasLargo() {
         int max = 0;
         String titulo = "";
-        for (int i = 0; i < 100; i++) {
-            if (numPaginas[i] > max) {
-                max = numPaginas[i];
-                titulo = titulos[i];
+        for (int i = 0; i < listadeLibros.length; i++) {
+            if (listadeLibros[i] != null) {
             }
+            System.out.println("El libro mas largo es: " + titulo);
         }
-        System.out.println("El libro mas largo es: " + titulo);
-    }
 
+    }
 }
